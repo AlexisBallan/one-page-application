@@ -1,0 +1,45 @@
+#page-chargement-application{
+    position:relative;
+    height:100vh;
+    background-image:url(../decoration/pngwing.com.png);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:bottom center;
+    background-attachment:fixed;
+  
+    text-align:center;
+    font-size:2rem;
+    font-family:'The Perfect Christmas', sans-serif;
+    font-weight:normal;
+    line-height:1.8rem;
+  
+    padding:5%;
+    color:var(--theme-blanc);
+    text-shadow: 2px 2px var(--theme-noir);
+    animation: pulse 1.5s infinite;
+    animation-direction: alternate;
+  }
+
+  .flextainer{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+  }
+
+  li{
+    list-style-type: none;
+  }
+
+  .ajouter-personnage{
+    margin-bottom: 3%;
+  }
+
+  .flextainer a{
+    text-decoration: none;
+  }
+
+  .titre{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    text-align: center;
+  }

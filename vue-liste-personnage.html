@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Liste des cadeaux de Noël</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/application.css">
+  <style></style>
+</head>
+<body>
+
+    <h1 class="titre">Liste des meilleurs personnages de One Piece</h1>
+
+    <div class="flextainer ajouter-personnage">
+        <div style="width: 50%;">
+            <a href="#ajouter-personnage">
+                <div class="alert alert-dismissible alert-primary">
+                    <h4 class="alert-heading" style="text-align: center;">Ajouter un personnage</h4> 
+                </div>
+            </a>            
+        </div>
+    </div>
+
+    <ul id="liste-personnage">
+        <li>
+            <div class="flextainer">
+                <div style="width: 70%;">
+                    <a href="#personnage/{Personnage.id}">
+                        <div class="alert alert-dismissible alert-warning">
+                            <h4 class="alert-heading">{Personnage.nom}</h4> 
+                        </div>
+                    </a>            
+                </div>
+            </div>
+        </li>
+    </ul>     
+</body>
+</html>

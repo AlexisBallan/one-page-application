@@ -25,11 +25,15 @@ class Application{
         this.window.location.hash = "#";
     }
 
+    afficherNouvelleListePersonnage(listerPersonnage){
+        this.vueListePersonnage.initialiserListePersonnage(listerPersonnage);
+        this.vueListePersonnage.afficher();
+    }
+
     naviguer(){
         let hash = this.window.location.hash;
         if(!hash){
-            this.vueListePersonnage.initialiserListePersonnage(this.personnageDAO.lister());
-            this.vueListePersonnage.afficher();
+            this.personnageDAO.lister((listePersonnage) => this.afficherNouvelleListePersonnage(listePersonnage));
         } else if(hash.match(/^#ajouter-personnage/)){
             this.vueAjouterPersonnage.afficher();
         } else if(hash.match(/^#modifier-personnage+/)){

@@ -1,5 +1,5 @@
 class Personnage{
-    constructor(nom, equipage, description, prime, id) {
+    constructor(nom, equipage, description, prime, id = null) {
         this.nom = nom;
         this.equipage = equipage;
         this.description = description;

@@ -30,8 +30,8 @@ class PersonnageDAO{
             .then(response => response.json())
             .then(data =>
                 {
-                    //console.log(data);
-                    
+                    console.log(data);
+                    //console.log(JSON.parse(data));
                     for(let position in data){
                         let personnage = new Personnage(data[position].nom,
                                 data[position].equipage,
@@ -39,8 +39,8 @@ class PersonnageDAO{
                                 data[position].prime,
                                 data[position].id);
 
-                        //console.log(personnage);
-                        listePersonnage.push(personnage);
+                        console.log(personnage);
+                        listePersonnage[listePersonnage.length] = personnage;
                     }
                     
                 });

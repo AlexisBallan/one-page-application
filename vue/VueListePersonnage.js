@@ -16,14 +16,16 @@ class VueListePersonnage{
         const listePersonnageItemHTML = listePersonnage.innerHTML;
         let listePersonnageHTMLRemplacement = "";
         
-        console.log(this.listePersonnageDonnee);
-        for(var numeroPersonnage in this.listePersonnageDonnee){
+        console.log("liste persodtcf", this.listePersonnageDonnee);
+        console.log(this.listePersonnageDonnee[0]);
+        
+        for(var personnage of this.listePersonnageDonnee){
             let listePersonnageItemHTMLRemplacement = listePersonnageItemHTML;
-            console.log(this.listePersonnageDonnee[numeroPersonnage].nom);
+            console.log("test", personnage.nom);
             //listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
             //listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
-            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", this.listePersonnageDonnee[numeroPersonnage].id);
-            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.nom}", this.listePersonnageDonnee[numeroPersonnage].nom);
+            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", personnage.id);
+            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.nom}", personnage.nom);
             listePersonnageHTMLRemplacement += listePersonnageItemHTMLRemplacement;
         }
 

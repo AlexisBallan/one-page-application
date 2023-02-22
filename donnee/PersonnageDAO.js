@@ -1,15 +1,53 @@
 class PersonnageDAO{
     constructor(){
-        /*this.listePersonnage = [
-            {nom:"Luffy au chapeaux de paille", equipage:"Équipage des mugiwara", description:"Un des 4 empereurs des mers", prime:"3.000.000.000", id:0},
-            {nom:"Silvers Rayleigh", equipage:"Équipage de Roger", description:"Le seigneur des ténébres, ex bras droit du seigneur des pirates", prime:"inconnu", id:1},
-            {nom:"Luffy au chapeaux de paille", equipage:"Équipage des mugiwara", description:"Un des 4 empereurs des mers", prime:"3.000.000.000", id:0},
-        ];*/
-        this.listePersonnage = [];
-    }
+        this.URL = "http://51.79.64.98/one-page-application/API/";
+    }/*
+    lister(action){
+        fetch(this.URL + 'Jayson')
+          .then(response => response.json())
+          .then(data =>
+            {
+              console.log(data);
+              let listeJeux = [];
+              for(let position in data){
+                let jeux = new Jeux(data[position].nom,
+                                        data[position].marque,
+                                        data[position].description,
+                                        data[position].prix,
+                                        data[position].couleur,
+                                        data[position].id);
+    
+                console.log(jeux);
+                listeJeux.push(jeux);
+              }
+              action(listeJeux);
+            });
+      }*/
 
     lister(){
-        if(localStorage['personnage']){
+        let listePersonnage = [];
+        fetch(this.URL + 'listerPersonnage.php')
+            .then(response => response.json())
+            .then(data =>
+                {
+                    //console.log(data);
+                    
+                    for(let position in data){
+                        let personnage = new Personnage(data[position].nom,
+                                data[position].equipage,
+                                data[position].description,
+                                data[position].prime,
+                                data[position].id);
+
+                        //console.log(personnage);
+                        listePersonnage.push(personnage);
+                    }
+                    
+                });
+        //console.log(listePersonnage);
+        return listePersonnage;
+
+        /*if(localStorage['personnage']){
             this.listePersonnage = JSON.parse(localStorage['personnage']);
         }
 
@@ -22,7 +60,7 @@ class PersonnageDAO{
                 
             this.listePersonnage[personnage.id] = personnage;
         }
-        return this.listePersonnage;
+        return this.listePersonnage;*/
     }
 
     ajouter(personnage){

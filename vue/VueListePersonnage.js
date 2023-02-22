@@ -5,7 +5,7 @@ class VueListePersonnage{
     }
 
     initialiserListePersonnage(listePersonnageDonnee){
-        console.log("initialiserListePersonnage");
+        console.log("initialiserListePersonnage ", listePersonnageDonnee);
         this.listePersonnageDonnee = listePersonnageDonnee;
     }
 
@@ -15,12 +15,14 @@ class VueListePersonnage{
         let listePersonnage = document.getElementById("liste-personnage");
         const listePersonnageItemHTML = listePersonnage.innerHTML;
         let listePersonnageHTMLRemplacement = "";
-
+        
+        console.log(this.listePersonnageDonnee);
         for(var numeroPersonnage in this.listePersonnageDonnee){
             let listePersonnageItemHTMLRemplacement = listePersonnageItemHTML;
-            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
-            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
-            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
+            console.log(this.listePersonnageDonnee[numeroPersonnage].nom);
+            //listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
+            //listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.idModifier}", this.listePersonnageDonnee[numeroPersonnage].id);
+            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", this.listePersonnageDonnee[numeroPersonnage].id);
             listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.nom}", this.listePersonnageDonnee[numeroPersonnage].nom);
             listePersonnageHTMLRemplacement += listePersonnageItemHTMLRemplacement;
         }

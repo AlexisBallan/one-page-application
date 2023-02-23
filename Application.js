@@ -17,11 +17,16 @@ class Application{
 
     actionAjouterPersonnage(personnage){
         this.personnageDAO.ajouter(personnage);
-        this.window.location.hash = "#";
+
+        setTimeout(this.changerLocation, 100);
     }
 
     actionModifierPersonnage(personnage){
         this.personnageDAO.modifier(personnage);
+        setTimeout(this.changerLocation, 100);
+    }
+
+    changerLocation(){
         this.window.location.hash = "#";
     }
 
@@ -30,29 +35,35 @@ class Application{
         this.vueListePersonnage.afficher();
     }
 
+    afficherNouveauPersonnage(personnage){
+        this.vuePersonnage.initialiserPersonnage(personnage);
+        this.vuePersonnage.afficher();
+    }
+
+    afficherPersonnageAModifier(personnage){
+        this.vueModifierPersonnage.initialiserPersonnage(personnage);
+        this.vueModifierPersonnage.afficher();
+    }
+
     naviguer(){
         let hash = this.window.location.hash;
         if(!hash){
+            console.log("tes ici");
             this.personnageDAO.lister((listePersonnage) => this.afficherNouvelleListePersonnage(listePersonnage));
-        } else if(hash.match(/^#ajouter-personnage/)){
+        } 
+        else if(hash.match(/^#ajouter-personnage/)){
             this.vueAjouterPersonnage.afficher();
         } else if(hash.match(/^#modifier-personnage+/)){
             let navigation = hash.match(/^#modifier-personnage\/([0-9]+)/);
             let idPersonnage = navigation[1];
-
-            this.vueModifierPersonnage.initialiserPersonnage(this.personnageDAO.lister()[idPersonnage]);
-            this.vueModifierPersonnage.afficher();
+            this.personnageDAO.chercher(idPersonnage, (personnage) => this.afficherPersonnageAModifier(personnage));
+            
         } else {
             let navigation = hash.match(/^#personnage\/([0-9]+)/);
             let idPersonnage = navigation[1];
-
-            this.vuePersonnage.initialiserPersonnage(this.personnageDAO.lister()[idPersonnage]);
-            
-            this.vuePersonnage.afficher();
+            this.personnageDAO.chercher(idPersonnage, (personnage) => this.afficherNouveauPersonnage(personnage));
         }
-    }
-
-    
+    }    
 }
 
 new Application(window, new VueListePersonnage(), new VueAjouterPersonnage(), new PersonnageDAO(), new VuePersonnage(), new VueModifierPersonnage());

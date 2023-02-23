@@ -29,7 +29,7 @@ class VueModifierPersonnage{
         let equipage = document.getElementById("personnage-equipage").value;
         let description = document.getElementById("personnage-description").value;
         let prime = document.getElementById("personnage-prime").value;
-
-        this.actionModifierPersonnage(new Personnage(nom, equipage, description, prime, this.personnage.id));
+        console.log(this.personnage.id);
+        this.actionModifierPersonnage({'nom':nom, 'equipage':equipage, 'description':description, 'prime':prime, 'id':this.personnage.id});
     }
 }

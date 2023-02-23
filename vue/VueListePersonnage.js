@@ -19,6 +19,8 @@ class VueListePersonnage{
         for(var numeroPersonnage in this.listePersonnageDonnee){
             let listePersonnageItemHTMLRemplacement = listePersonnageItemHTML;
             listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", this.listePersonnageDonnee[numeroPersonnage].id);
+            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", this.listePersonnageDonnee[numeroPersonnage].id);
+            listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.id}", this.listePersonnageDonnee[numeroPersonnage].id);
             listePersonnageItemHTMLRemplacement = listePersonnageItemHTMLRemplacement.replace("{Personnage.nom}", this.listePersonnageDonnee[numeroPersonnage].nom);
             listePersonnageHTMLRemplacement += listePersonnageItemHTMLRemplacement;
         }

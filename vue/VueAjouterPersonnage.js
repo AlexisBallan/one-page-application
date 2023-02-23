@@ -20,7 +20,6 @@ class VueAjouterPersonnage{
         let equipage = document.getElementById("personnage-equipage").value;
         let description = document.getElementById("personnage-description").value;
         let prime = document.getElementById("personnage-prime").value;
-
-        this.actionAjouterPersonnage(new Personnage(nom, equipage, description, prime, null));
+        this.actionAjouterPersonnage({'nom':nom, 'equipage':equipage, 'description':description, 'prime':prime, 'id':null});
     }
 }
